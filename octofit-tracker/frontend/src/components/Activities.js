@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
-import { buildApiEndpoint, normalizeApiResponse } from './api';
+import { normalizeApiResponse } from './api';
 import ResourcePage from './ResourcePage';
 
 function Activities() {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const endpoint = buildApiEndpoint('activities');
+  const endpoint = process.env.REACT_APP_CODESPACE_NAME
+    ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+    : 'http://localhost:8000/api/activities/';
 
   const loadActivities = useCallback(async () => {
     setLoading(true);

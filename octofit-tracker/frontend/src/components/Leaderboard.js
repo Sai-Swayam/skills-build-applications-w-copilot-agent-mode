@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
-import { buildApiEndpoint, normalizeApiResponse } from './api';
+import { normalizeApiResponse } from './api';
 import ResourcePage from './ResourcePage';
 
 function Leaderboard() {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const endpoint = buildApiEndpoint('leaderboard');
+  const endpoint = process.env.REACT_APP_CODESPACE_NAME
+    ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+    : 'http://localhost:8000/api/leaderboard/';
 
   const loadLeaderboard = useCallback(async () => {
     setLoading(true);
