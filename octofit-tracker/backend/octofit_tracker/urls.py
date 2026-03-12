@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+import os
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -31,16 +32,22 @@ router.register(r'leaderboard', LeaderboardViewSet)
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    codespace_name = os.environ.get('CODESPACE_NAME')
+    if codespace_name:
+        base_url = f"https://{codespace_name}-8000.app.github.dev"
+    else:
+        base_url = "http://localhost:8000"
+
     return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'teams': reverse('team-list', request=request, format=format),
-        'activities': reverse('activity-list', request=request, format=format),
-        'workouts': reverse('workout-list', request=request, format=format),
-        'leaderboard': reverse('leaderboard-list', request=request, format=format),
+        'users': f"{base_url}{reverse('user-list', request=request, format=format)}",
+        'teams': f"{base_url}{reverse('team-list', request=request, format=format)}",
+        'activities': f"{base_url}{reverse('activity-list', request=request, format=format)}",
+        'workouts': f"{base_url}{reverse('workout-list', request=request, format=format)}",
+        'leaderboard': f"{base_url}{reverse('leaderboard-list', request=request, format=format)}",
     })
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', api_root, name='api-root'),
     path('api/', include(router.urls)),
-    path('', api_root, name='api-root'),
 ]
