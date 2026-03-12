@@ -1,0 +1,239 @@
+:root {
+  --octo-bg-top: #fff6dc;
+  --octo-bg-bottom: #d9f5f0;
+  --octo-surface: rgba(255, 255, 255, 0.92);
+  --octo-primary: #0a6c74;
+  --octo-primary-strong: #084f55;
+  --octo-accent: #ef7d32;
+  --octo-accent-soft: #ffd1a8;
+  --octo-heading: #12343b;
+  --octo-text: #29454b;
+  --octo-link: #0b7285;
+  --octo-link-hover: #084c61;
+  --octo-table-head: #174b57;
+  --octo-table-stripe: rgba(11, 114, 133, 0.05);
+  --octo-border: rgba(18, 52, 59, 0.12);
+}
+
+.app-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(239, 125, 50, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(10, 108, 116, 0.2), transparent 30%),
+    linear-gradient(180deg, var(--octo-bg-top) 0%, var(--octo-bg-bottom) 100%);
+  color: var(--octo-text);
+}
+
+.app-header {
+  backdrop-filter: blur(12px);
+}
+
+.app-shell h1,
+.app-shell h2,
+.app-shell h3,
+.app-shell h4,
+.app-shell h5,
+.app-shell h6 {
+  color: var(--octo-heading);
+}
+
+.app-shell p,
+.app-shell li,
+.app-shell label,
+.app-shell td,
+.app-shell th,
+.app-shell input,
+.app-shell textarea {
+  color: var(--octo-text);
+}
+
+.navbar-brand {
+  letter-spacing: -0.02em;
+  color: var(--octo-heading) !important;
+}
+
+.brand-lockup {
+  min-width: 0;
+}
+
+.brand-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 209, 168, 0.75));
+  box-shadow: 0 12px 24px rgba(18, 52, 59, 0.14);
+  padding: 0.35rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  color: var(--octo-primary-strong) !important;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(239, 125, 50, 0.16);
+  transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active {
+  background: linear-gradient(135deg, var(--octo-primary), var(--octo-accent));
+  color: #fff !important;
+  box-shadow: 0 10px 22px rgba(10, 108, 116, 0.25);
+}
+
+.hero-card,
+.resource-card,
+.resource-meta,
+.modal-content {
+  border-radius: 1.25rem;
+}
+
+.hero-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 246, 220, 0.88));
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 24px 50px rgba(18, 52, 59, 0.12) !important;
+}
+
+.resource-card {
+  background: var(--octo-surface);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 20px 42px rgba(18, 52, 59, 0.1) !important;
+}
+
+.resource-meta {
+  min-width: min(100%, 320px);
+  background: linear-gradient(135deg, rgba(10, 108, 116, 0.08), rgba(239, 125, 50, 0.1)) !important;
+}
+
+.endpoint-link {
+  word-break: break-all;
+}
+
+.feature-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(217, 245, 240, 0.78)) !important;
+}
+
+.hero-logo {
+  max-width: 112px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 209, 168, 0.65));
+  box-shadow: 0 14px 28px rgba(18, 52, 59, 0.12);
+  padding: 0.55rem;
+}
+
+.app-shell .link-primary,
+.app-shell a {
+  color: var(--octo-link) !important;
+}
+
+.app-shell .link-primary:hover,
+.app-shell a:hover {
+  color: var(--octo-link-hover) !important;
+}
+
+.app-shell .btn-primary {
+  background: linear-gradient(135deg, var(--octo-primary), var(--octo-accent));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(10, 108, 116, 0.2);
+}
+
+.app-shell .btn-primary:hover,
+.app-shell .btn-primary:focus {
+  background: linear-gradient(135deg, var(--octo-primary-strong), #d96a22);
+  border-color: transparent;
+  color: #fff;
+}
+
+.app-shell .btn-outline-secondary {
+  border-color: rgba(18, 52, 59, 0.18);
+  color: var(--octo-heading);
+}
+
+.app-shell .btn-outline-secondary:hover,
+.app-shell .btn-outline-dark:hover {
+  background-color: rgba(23, 75, 87, 0.08);
+  color: var(--octo-heading);
+}
+
+.app-shell .btn-outline-dark {
+  border-color: rgba(10, 108, 116, 0.4);
+  color: var(--octo-primary-strong);
+}
+
+.app-shell .btn-outline-primary {
+  border-color: var(--octo-primary);
+  color: var(--octo-primary);
+}
+
+.app-shell .btn-outline-primary:hover {
+  background-color: var(--octo-primary);
+  color: #fff;
+}
+
+.app-shell .btn-secondary {
+  background-color: #5f6f72;
+  border-color: #5f6f72;
+}
+
+.app-shell .form-control {
+  border-color: rgba(10, 108, 116, 0.16);
+  box-shadow: none;
+}
+
+.app-shell .form-control:focus {
+  border-color: rgba(239, 125, 50, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(239, 125, 50, 0.14);
+}
+
+.app-shell .badge.text-bg-light {
+  background-color: rgba(239, 125, 50, 0.12) !important;
+  border-color: rgba(239, 125, 50, 0.2) !important;
+}
+
+.table thead th {
+  white-space: nowrap;
+}
+
+.table tbody td {
+  vertical-align: middle;
+}
+
+.app-shell .table {
+  --bs-table-bg: rgba(255, 255, 255, 0.84);
+  --bs-table-striped-bg: var(--octo-table-stripe);
+  --bs-table-hover-bg: rgba(239, 125, 50, 0.08);
+  border-color: var(--octo-border);
+}
+
+.app-shell .table-dark {
+  --bs-table-bg: var(--octo-table-head);
+  --bs-table-striped-bg: var(--octo-table-head);
+  --bs-table-hover-bg: var(--octo-table-head);
+  --bs-table-color: #f5fbfb;
+}
+
+.app-shell .table-responsive {
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.app-shell .card,
+.app-shell .modal-content {
+  border-color: rgba(255, 255, 255, 0.64);
+}
+
+.app-shell .list-group-item {
+  color: var(--octo-text);
+}
+
+.modal {
+  background: rgba(24, 33, 43, 0.2);
+}
+
+@media (max-width: 575px) {
+  .navbar-nav .nav-link {
+    text-align: center;
+  }
+}
